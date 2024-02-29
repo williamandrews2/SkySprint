@@ -13,16 +13,16 @@ public class WaypointFollower : MonoBehaviour
         // Set to < .1 and not =0 due to small margins of error
         if(Vector3.Distance(transform.position, waypoints[currentWaypointIndex].transform.position) < .1f)
         {
-            // This refers to the transform component of the Floor4
-            transform.position = Vector3.MoveTowards(transform.position, waypoints[currentWaypointIndex].transform.position, speed * Time.deltaTime);
             currentWaypointIndex++;
             if(currentWaypointIndex >= waypoints.Length)
             {
                 currentWaypointIndex = 0;
             }
         }
-        
 
+        // This refers to the transform component of the Floor4
+        transform.position = Vector3.MoveTowards(transform.position, 
+            waypoints[currentWaypointIndex].transform.position, speed * Time.deltaTime);
     }
 
     /* Explanation of the script:
