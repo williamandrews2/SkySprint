@@ -27,7 +27,22 @@ public class PlayerMovement : MonoBehaviour
         // Jump
         if (Input.GetButtonDown("Jump") && isGrounded())
         {
-            rb.velocity = new Vector3(rb.velocity.x, jump, rb.velocity.z);
+            Jump();
+        }
+    }
+
+    void Jump()
+    {
+        rb.velocity = new Vector3(rb.velocity.x, jump, rb.velocity.z);
+    }
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.CompareTag("Enemy Head"))
+        {
+            // Access whole parent to destory the whole enemy, not just the head
+            Destroy(collision.transform.parent.gameObject);
+            Jump();
         }
     }
 
