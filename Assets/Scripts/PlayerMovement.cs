@@ -11,6 +11,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] LayerMask ground;
 
     [SerializeField] AudioSource jumpSound;
+    [SerializeField] AudioSource enemyDeathSound;
 
     Rigidbody rb;
     
@@ -46,6 +47,7 @@ public class PlayerMovement : MonoBehaviour
         {
             // Access whole parent to destory the whole enemy, not just the head
             Destroy(collision.transform.parent.gameObject);
+            enemyDeathSound.Play();
             Jump();
         }
     }
