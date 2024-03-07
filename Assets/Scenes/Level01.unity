@@ -953,7 +953,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 877551213226038086, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_Name
-      value: Floor (1)
+      value: Floor1
       objectReference: {fileID: 0}
     - target: {fileID: 1483971283909256420, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_LocalScale.x
@@ -1014,7 +1014,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 877551213226038086, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_Name
-      value: Floor (3)
+      value: Floor3
       objectReference: {fileID: 0}
     - target: {fileID: 1483971283909256420, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_LocalScale.x
@@ -1075,7 +1075,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 877551213226038086, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_Name
-      value: Floor (2)
+      value: Floor2
       objectReference: {fileID: 0}
     - target: {fileID: 1483971283909256420, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_LocalScale.x
@@ -1313,7 +1313,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 877551213226038086, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_Name
-      value: Floor (5)
+      value: FInishFloor
       objectReference: {fileID: 0}
     - target: {fileID: 1483971283909256420, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_LocalScale.x
@@ -1709,7 +1709,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 877551213226038086, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_Name
-      value: Floor
+      value: StartFloor
       objectReference: {fileID: 0}
     - target: {fileID: 1483971283909256420, guid: 1621b05e489d4ac40b75b31c8ceb8d48, type: 3}
       propertyPath: m_LocalPosition.x
