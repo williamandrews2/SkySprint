@@ -6,6 +6,12 @@ using UnityEngine.SceneManagement;
 public class PlayerLife : MonoBehaviour
 {
     bool dead = false;
+    GameObject objectToDisappear; 
+
+    private void Start()
+    {
+        objectToDisappear = GameObject.FindWithTag("Player");
+    }
 
     [SerializeField] AudioSource deathSound;
     private void Update()
@@ -30,6 +36,7 @@ public class PlayerLife : MonoBehaviour
     void Die()
     {
         dead = true;
+        objectToDisappear.SetActive(false);
         // Reloads the level after 1.3 seconds.
         Invoke(nameof(ReloadLevel), 1.3f);
         deathSound.Play();

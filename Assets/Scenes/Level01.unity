@@ -193,6 +193,25 @@ Transform:
   - {fileID: 1018855328}
   m_Father: {fileID: 2036678582}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &302597927 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7950088592228015425, guid: 8be0dc92e8297e041b93d3e44b787780, type: 3}
+  m_PrefabInstance: {fileID: 6398650070150213502}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &302597933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302597927}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ce573d25dab1be54bbb997b350581516, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rotationSpeed: 5
+  rotationDirection: {x: 0, y: 1, z: 0}
 --- !u!1001 &305138591
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1650,10 +1669,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 2532287544914803505, guid: 8be0dc92e8297e041b93d3e44b787780, type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 7317655397149535310, guid: 8be0dc92e8297e041b93d3e44b787780, type: 3}
       propertyPath: coinsText
       value: 
       objectReference: {fileID: 691039589}
+    - target: {fileID: 7950088592228015425, guid: 8be0dc92e8297e041b93d3e44b787780, type: 3}
+      propertyPath: m_TagString
+      value: Untagged
+      objectReference: {fileID: 0}
     - target: {fileID: 8793641884453463444, guid: 8be0dc92e8297e041b93d3e44b787780, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1694,10 +1721,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3787528011312405065, guid: 8be0dc92e8297e041b93d3e44b787780, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 7950088592228015425, guid: 8be0dc92e8297e041b93d3e44b787780, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 302597933}
   m_SourcePrefab: {fileID: 100100000, guid: 8be0dc92e8297e041b93d3e44b787780, type: 3}
 --- !u!1001 &7031430366420562432
 PrefabInstance:
