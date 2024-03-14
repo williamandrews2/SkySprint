@@ -4,23 +4,61 @@ using UnityEngine;
 
 public class MouseLookAround : MonoBehaviour
 {
-    float rotationX = 0f;
-    float rotationY = 0f;
+    public Transform player;
+    public float sensitivity = 3f;
+    public float orbitDamping = 10f;
+    [Range(1f, 100000f)]
+    public float distance = 3f; // Distance from player
+    public float height = -6f; // Height above player
+    public float minVerticalAngle = -89.9f; // Minimum vertical angle
+    public float maxVerticalAngle = 89.9f; // Maximum vertical angle
 
-    [SerializeField] public float sensitivity = 3f;
-    [SerializeField] float orbitDampening = 10f;
+    private Vector3 offset;
 
-    Vector3 rotation;
-    void Update()
+    void Start()
     {
-        rotation.x += Input.GetAxis("Mouse X") * sensitivity;
-        rotation.y -= Input.GetAxis("Mouse Y") * sensitivity;
+        // Calculate the initial offset based on the desired distance and height behind the player
+        //offset = -player.forward * distance + Vector3.up * height;
+        offset =(transform.position) - (player.position);
 
-        rotation.y = Mathf.Clamp(rotation.y, -89.9f, 89.9f);
+        // Ensure that the camera is always at the desired position relative to the player
+        if (player != null)
+        {           
+            UpdateCameraPosition();
+        }
+    }
 
-        //transform.localEulerAngles = new Vector3 (rotationX, rotationY, 0);
+    void LateUpdate()
+    {
+        if (player == null) return;
 
-        Quaternion QT = Quaternion.Euler(rotation.y, rotation.x, 0f);
-        transform.rotation = Quaternion.Lerp(transform.rotation, QT, Time.deltaTime * orbitDampening);
+        // Calculate rotation based on mouse input
+        float rotationX = Input.GetAxis("Mouse X") * sensitivity * 1.5f;
+        float rotationY = -Input.GetAxis("Mouse Y") * sensitivity;
+
+        // Apply rotation to the offset value
+        Quaternion rotation = Quaternion.Euler(rotationY, rotationX, 0f);
+        offset = rotation * offset;
+
+        // Clamp vertical angle
+        Vector3 localOffset = player.InverseTransformDirection(offset);
+        localOffset = Vector3.RotateTowards(Vector3.forward, localOffset, Mathf.Deg2Rad * (maxVerticalAngle - minVerticalAngle), 0f);
+        offset = player.TransformDirection(localOffset);
+
+        // Apply orbit damping ***ISSUE HERE***
+        //offset = Vector3.Lerp(offset, offset.normalized * offset.magnitude, Time.deltaTime * orbitDamping);
+
+        // Set camera position
+        UpdateCameraPosition();
+
+        // Look at the player
+        transform.LookAt(player.position);
+    }
+
+    void UpdateCameraPosition()
+    {
+        // Times 4 factor increases the distance between camera and player.
+        Vector3 targetPosition = player.position + offset * 4;     
+        transform.position = targetPosition;
     }
 }
